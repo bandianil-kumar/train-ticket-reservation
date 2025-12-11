@@ -1,3 +1,18 @@
+name: Build and Deploy train-ticket-reservation
+on: push:
+branches: [ master ] workflow_dispatch:
+jobs: build:
+runs-on: ubuntu-latest steps:
+- name: # Checkout code uses: actions/checkoutel
+- name: • Set up Java uses: actions/setup-java@v4
+distribution: 'temurin' java-version: '17'
+- name: & Build with Maven run: mvn clean package -DskipTests
+- name: # Find WAR file
+run: echo "WAR_FILE=$(1s target/* war | head -n 1)" >> $GITHUB_ENV
+- name: • Upload WAR artifact uses: actions/upload-artifact@v4 with:
+name: war-file
+path: ${f env.WAR_FILE ))
+ 
  deploy-dev:
     needs: build
     runs-on: ubuntu-latest
