@@ -32,7 +32,7 @@
         with:
           name: war-file
 
-      - name: 🚀 Deploy to DEV
+      - name: 🚀 Deploy to TEST
         env:
           URL: ${{ secrets.TOMCAT_URL_TEST }}
           USER: ${{ secrets.TOMCAT_USER_TEST }}
@@ -57,7 +57,7 @@
         with:
           name: war-file
 
-      - name: 🚀 Deploy to DEV
+      - name: 🚀 Deploy to PROD
         env:
           URL: ${{ secrets.TOMCAT_URL_PROD }}
           USER: ${{ secrets.TOMCAT_USER_PROD }}
@@ -82,7 +82,7 @@
         with:
           name: war-file
 
-      - name: 🚀 Deploy to DEV
+      - name: 🚀 Deploy to PRE
         env:
           URL: ${{ secrets.TOMCAT_URL_PRE }}
           USER: ${{ secrets.TOMCAT_USER_PRE }}
